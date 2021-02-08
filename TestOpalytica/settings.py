@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_rest_passwordreset',
     'corsheaders',
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -99,10 +100,10 @@ WSGI_APPLICATION = 'TestOpalytica.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testopalytica',
-        'USER': 'admin',  # master username
-        'PASSWORD': 'Prevalent.2020',
-        'HOST': 'prevalentware.c3rkad1ay1ao.us-east-1.rds.amazonaws.com',
+        'NAME': 'mibd',
+        'USER': 'miusuario',  # master username
+        'PASSWORD': 'miclave',
+        'HOST': 'mihost',
         'PORT': '3306',
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -169,3 +170,10 @@ S3_BUCKET = "test-backend-opalytica-staticfiles"
 STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
 AWS_S3_BUCKET_NAME_STATIC = S3_BUCKET
 STATIC_URL = "https://%s.s3.amazonaws.com/" % S3_BUCKET
+
+
+# file storages
+AWS_STORAGE_BUCKET_NAME = 'test-opalytica-media'
+AWS_S3_FILE_OVERWRITE = True
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
