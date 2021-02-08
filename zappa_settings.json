@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "us-east-1",
+        "django_settings": "TestOpalytica.settings",
+        "profile_name": "default",
+        "project_name": "testopalytica",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-fk69mas0c"
+    }
+}
