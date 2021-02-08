@@ -47,6 +47,7 @@ CORS_ORIGIN_WHITELIST = (
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'api',
     'rest_framework',
     'django_rest_passwordreset',
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_s3_storage'
 ]
 
 MIDDLEWARE = [
@@ -155,8 +157,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+GRAPPELLI_ADMIN_TITLE = "TEST OPALYTICA"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+S3_BUCKET = "test-backend-opalytica-staticfiles"
+STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
+AWS_S3_BUCKET_NAME_STATIC = S3_BUCKET
+STATIC_URL = "https://%s.s3.amazonaws.com/" % S3_BUCKET
